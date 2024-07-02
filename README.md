@@ -1,65 +1,51 @@
-# Three-stage-model
-This library provides simulation code for [Exact solution of a three-stage model of stochastic gene expression including
-cell-cycle dynamics](https://www.biorxiv.org/content/10.1101/2023.08.29.555255v2.full.pdf)
+# Defect detection on products of complex geometry
+This library provides simulation code for An efficient 3D cutting scheme for detecting defects on products of complex geometry.
 ________________________________________________________________________________________________________
 ## Requirements
-- Mathematica v13.2.1.0
-- pandas v1.3.2
-- numpy  1.16.5<=v<=1.23.0
-- scipy v1.7.1
+- MATLAB 2018 and newer
 ## File description
-- "SSA_model _II _t10.csv" is SSA result for Model II.
-- "exact_solution_Model_II.nb" is exact solution for Model II.
-- "population_SSA_IV.ipynb"[<sup>[1]</sup>](#refer-anchor-1) is population SSA for Model IV.
-- "stationary_statistics_Model_III.nb" is exact solution for Model III.
+- "slicing.m" is an efficient cutting algorithm.
+- "ICP.m" is the iterative closet point  algorithm for the alignment of two 3D models is aligned.
+- "defect.m" is used to calculate the defect points after comparing the defective parts with the non-defective parts..
+- "Plot_defect_sefment" Is used to visualize the resulting defect area..
 
-## Examples
-__1. Exact solution of Model II.__  
+## Algorithm description
+__1. Introduction.__  
 
-The full time domain exact protein distribution of Model II can be obtained by using
 ```
-G = G0 + G1 /. param;
-Bins = 80;
-Gp = G /. w1 -> 0;
-PP = ResourceFunction["NSeries"][Gp, {w2, -1, Bins}][[3]];
-v = Table[{i - Bins - 1, Re[PP[[i]]]}, {i, Bins + 1, 2*Bins + 1}];
-pG = ListPlot[v, PlotRange -> All]
+Surface quality is crucial for high-end equipment functionality, as defects can lead to failures or safety disasters. On-site production inspections are key for ensuring reliability, yet inspecting complex surfaces for hidden defects is costly and often inefficient, with traditional 3D defect detection methods struggling on complex geometries, risking false or missed detections. This study introduces a defect detection scheme using a 3D cutting algorithm for isometric multilayered cutting of parts, aligning each layer's cross-section to detect defects. By converting numerous numerical operations into Boolean operations through reconstructed 3D point cloud data, this approach significantly cuts computing time and mitigates issues from complex geometries. Validated on complex aeroengine impeller parts and other complex structures, our method demonstrates high effectiveness and broad applicability, offering substantial improvements over traditional methods in detecting surface defects.
 ```
 `G` is the generating function. If you care about the probability distribution of mRNA, swap the positions of w1 and w2. For more details, please refer to [exact_solution_Model_II.nb]().
 
-__2. The population SSA of Model IV.__  
+__2. algorithm principle.__  
 
-The population SSA results of Model IV can be invoked with `population_SSA`
-```
-data=population_SSA(m0,G0,G1,p0,t0,phase0,age0,Tmax,Ncycle,Tcycle,son,soff,rho,lam,dm)
-```
-`G0`,`G1`,`m0`,`p0`,`t0`,`phase0`,`age0` are initial conditions.  
-`Tmax` is simulation ending time.  
-Calculate the parameter `k` for the exponential distribution by using `k`=`Ncycle`/`Tcycle`.  
-`son`,`sof`,`rho`,`lam`,`dm` are kintic parameters.  
-`data` is a matrix with seven rows, stores values of 
-absolute time、 acitve gene、 inactive gene、 mRNA、 protein、 cell age and cell phase respectively. For more details, please refer to [population_SSA_IV.ipynb]().  
+The pseudo-code for the single-level cutting strategy
+```plaintext
+// Cutting algorithm and defect detection strategy
+𝐈𝐧𝐩𝐮𝐭 𝐃𝐚𝐭𝐚: 1. D = {V, F}
+             2. Direction vector (camera system): x(a_1, b_1, c_1), y(a_2, b_2, c_2), z(a_3, b_3, c_3)
+             3. Distance parameter \delta z
+𝐋𝐨𝐚𝐝𝐢𝐧𝐠 𝐌𝐨𝐝𝐞𝐥s：V, F
+𝐒𝐓𝐀𝐆𝐄 𝐈: preprocessing
+𝐑𝐨𝐭𝐚𝐭𝐢𝐨𝐧 : Compute 𝑥-axis coordinates
+𝐑𝐨𝐭𝐚𝐭𝐢𝐨𝐧 : Compute 𝑦-axis coordinates
+𝐓𝐫𝐚𝐧𝐬𝐥𝐚𝐭𝐢𝐨𝐧 : Compute 𝑧-axis coordinates
+𝐒𝐓𝐀𝐆𝐄 𝐈𝐈 ∶ Locating intersecting faces
+for i = 0:n-1
+    if v_iz ≥ 0
+       sgn(v_iz) = 1
+    else
+       sgn(v_iz) = -1
+    end if
+end for
+𝐒𝐓𝐀𝐆𝐄 𝐈𝐈𝐈 ∶ Computing intersection points
+for j = 0:m-1
+    if|Sgn(f_j)| = 1
+      f_new = fj
+    end if
+    Calculate intersection points by using Eq. (8), Eq. (9)
+end for
+𝐒𝐓𝐀𝐆𝐄 𝐈𝐕 ∶ Alignment of polygons and defect detection
 
-__3. The exact statistics of Model III.__  
-
-The exact statistics of Model III in stationary state can be obtained by [stationary_statistics_Model_III.nb]()
-
-
-## Citation
-If you found this library useful in your research, please consider citing.
-```
-@article{wang2023exact,
-  title={Exact solution of a three-stage model of stochastic gene expression model including cell-cycle dynamics},
-  author={Wang, Yiling and Yu, Zhenhua and Cao, Zhixing and Grima, Ramon},
-  journal={bioRxiv},
-  pages={2023--08},
-  year={2023},
-  publisher={Cold Spring Harbor Laboratory}
-}
-```
-## Reference
-<div id="refer-anchor-1"></div>
-
-- [1] Beentjes C H L, Perez-Carrasco R, Grima R. Exact solution of stochastic gene expression models with bursting, cell cycle and replication dynamics[J]. Physical Review E, 2020, 101(3): 032403. [https://doi.org/10.1103/PhysRevE.101.032403](https://doi.org/10.1103/PhysRevE.101.032403)
 
 

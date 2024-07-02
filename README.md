@@ -7,7 +7,7 @@ ________________________________________________________________________________
 - "slicing.m" is an efficient cutting algorithm.
 - "ICP.m" is the iterative closet point  algorithm for the alignment of two 3D models is aligned.
 - "defect.m" is used to calculate the defect points after comparing the defective parts with the non-defective parts..
-- "Plot_defect_sefment" Is used to visualize the resulting defect area..
+- "Plot_defect_sefment" is used to visualize the resulting defect area..
 
 ## Algorithm description
 __1. Introduction.__  

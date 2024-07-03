@@ -9,7 +9,7 @@ ________________________________________________________________________________
 - "defect.m" is used to calculate the defect points after comparing the defective parts with the non-defective parts..
 - "Plot_defect_sefment" is used to visualize the resulting defect area..
 
-## Algorithm description
+## Method description
 __1. Introduction.__  
 
 ```

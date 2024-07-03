@@ -15,8 +15,13 @@ __1. Introduction.__
 ```
 Surface quality is crucial for high-end equipment functionality, as defects can lead to failures or safety disasters. On-site production inspections are key for ensuring reliability, yet inspecting complex surfaces for hidden defects is costly and often inefficient, with traditional 3D defect detection methods struggling on complex geometries, risking false or missed detections. This study introduces a defect detection scheme using a 3D cutting algorithm for isometric multilayered cutting of parts, aligning each layer's cross-section to detect defects. By converting numerous numerical operations into Boolean operations through reconstructed 3D point cloud data, this approach significantly cuts computing time and mitigates issues from complex geometries. Validated on complex aeroengine impeller parts and other complex structures, our method demonstrates high effectiveness and broad applicability, offering substantial improvements over traditional methods in detecting surface defects.
 ```
+__2. Overview of the method.__   
 
-__2. Algorithm principle.__  
+```
+![Overview of the defect detection algorithm for complex parts based on an efficient cutting scheme.](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/overview.PNG)
+```
+
+__3. Algorithm principle.__  
 
 The pseudo-code for the single-level cutting strategy
 ```plaintext
@@ -46,8 +51,6 @@ for j = 0:m-1
 end for
 𝐒𝐓𝐀𝐆𝐄 𝐈𝐕 ∶ Alignment of polygons and defect detection
 
-__3. Overview of the method.__  
-![Overview of the defect detection algorithm for complex parts based on an efficient cutting scheme.](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/overview.PNG)
 
 
 

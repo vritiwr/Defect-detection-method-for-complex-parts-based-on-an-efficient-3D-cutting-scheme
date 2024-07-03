@@ -47,7 +47,7 @@ end for
 𝐒𝐓𝐀𝐆𝐄 𝐈𝐕 ∶ Alignment of polygons and defect detection
 
 __3. Overview of the method.__  
-![Overview of the defect detection algorithm for complex parts based on an efficient cutting scheme.](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/OverView.pdf)
+![Overview of the defect detection algorithm for complex parts based on an efficient cutting scheme.](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/overview.PNG)
 
 
 

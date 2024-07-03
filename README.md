@@ -18,7 +18,7 @@ Surface quality is crucial for high-end equipment functionality, as defects can 
 __2. Overview of the method.__   
 
 ```
-![Overview of the defect detection algorithm for complex parts based on an efficient cutting scheme.](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/overview.PNG)
+![image](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/overview.PNG)
 ```
 
 __3. Algorithm principle.__  
@@ -50,7 +50,4 @@ for j = 0:m-1
     Calculate intersection points by using Eq. (8), Eq. (9)
 end for
 𝐒𝐓𝐀𝐆𝐄 𝐈𝐕 ∶ Alignment of polygons and defect detection
-
-
-
-
+```

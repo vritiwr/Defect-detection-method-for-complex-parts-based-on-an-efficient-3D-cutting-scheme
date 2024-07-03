@@ -18,7 +18,7 @@ Surface quality is crucial for high-end equipment functionality, as defects can 
 __2. Overview of the method.__   
 
 ```
-![image](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/overview.PNG)
+![image](https://github.com/vritiwr/Defect-detection-method-for-complex-parts-based-on-an-efficient-3D-cutting-scheme/blob/main/img/overview.jpg)
 ```
 
 __3. Algorithm principle.__  
